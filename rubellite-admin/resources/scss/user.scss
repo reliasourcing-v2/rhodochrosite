@@ -1,0 +1,26 @@
+@config "../../tailwind.config.js";
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import "swiper/css/navigation";
+@import "swiper/css/free-mode";
+@import 'swiper/css';
+
+@import '../fonts/poppins/stylesheet.scss';
+@import '../fonts/chercher/stylesheet.scss';
+@import '../fonts/helvetica/stylesheet.scss';
+@import '../fonts/alfa/stylesheet.scss';
+@import '../fonts/righteous/stylesheet.scss';
+@import '../fonts/gabarito/stylesheet.scss';
+
+@import 'lightgallery/css/lightgallery.css';
+@import 'lightgallery/css/lg-thumbnail.css';
+@import 'lightgallery/css/lg-zoom.css';
+@import 'lightgallery/css/lg-video.css';
+
+@import './styles/ckeditor.scss';
+@import './styles/typography.scss';
+@import './styles/pages.scss';
+@import './styles/forms.scss';

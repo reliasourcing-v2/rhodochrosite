@@ -1,0 +1,177 @@
+import defaultTheme from 'tailwindcss/defaultTheme';
+import aspectRatio from '@tailwindcss/aspect-ratio';
+import containerQueries from '@tailwindcss/container-queries';
+import forms from '@tailwindcss/forms';
+import typography from '@tailwindcss/typography';
+
+module.exports = {
+    mode: "jit",
+    content: [
+        "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
+        "./vendor/laravel/jetstream/**/*.blade.php",
+        "./storage/framework/views/*.php",
+        "./resources/views/**/*.blade.php",
+        "./resources/ts/**/*.vue",
+    ],
+    theme: {
+        extend: {
+            fontFamily: {
+                sans: ["Inter", ...defaultTheme.fontFamily.sans],
+            },
+            colors: {
+                'primary': {
+                    50:'#EDEFEF',
+                    100:'#E5E5E5',
+                    200:'rgba(33, 33, 33, 0.08)',
+                    300:'rgba(33, 33, 33, 0.32)',
+                    400:'#60A5FA',
+                    500:'#31BEB5',
+                    600:'#22857F',
+                    700:'#2E4959',
+                    800:'#212121',
+                    900:'#1C2C36',
+                },
+                'gray':{
+                    50:'#F9FAFB',
+                    100:'#F3F4F6',
+                    200:'#E5E7EB',
+                    300:'#D1D5DB',
+                    400:'#9CA3AF',
+                    500:'#6B7280',
+                    600:'#4B5563',
+                    700:'#374151',
+                    800:'#1F2937',
+                    900:'#111827',
+                },
+                'red':{
+                    50:'#FEF2F2',
+                    100:'#FEE2E2',
+                    200:'#FECACA',
+                    300:'#FCA5A5',
+                    400:'#F87171',
+                    500:'#EF4444',
+                    600:'#DC2626',
+                    700:'#B91C1C',
+                    800:'#991B1B',
+                    900:'#7F1D1D',
+                },
+                'orange':{
+                    50:'#FFF7ED',
+                    100:'#FFEDD5',
+                    200:'#FED7AA',
+                    300:'#FDBA74',
+                    400:'#FB923C',
+                    500:'#F97316',
+                    600:'#EA580C',
+                    700:'#C2410C',
+                    800:'#9A3412',
+                    900:'#7C2D12',
+                },
+                'yellow':{
+                    50:'#FEFCE8',
+                    100:'#FEF9C3',
+                    200:'#FEF08A',
+                    300:'#FDE047',
+                    400:'#FACC15',
+                    500:'#EAB308',
+                    600:'#CA8A04',
+                    700:'#A16207',
+                    800:'#854D0E',
+                    900:'#713F12',
+                },
+                'green':{
+                    50:'#ECFDF5',
+                    100:'#D1FAE5',
+                    200:'#A7F3D0',
+                    300:'#6EE7B7',
+                    400:'#34D399',
+                    500:'#10B981',
+                    600:'#059669',
+                    700:'#047857',
+                    800:'#065F46',
+                    900:'#064E3B',
+                },
+                'blue':{
+                    50:'#EFF6FF',
+                    100:'#DBEAFE',
+                    200:'#BFDBFE',
+                    300:'#93C5FD',
+                    400:'#60A5FA',
+                    500:'#3B82F6',
+                    600:'#2563EB',
+                    700:'#1D4ED8',
+                    800:'#1E40AF',
+                    900:'#1E3A8A',
+                },
+                'purple':{
+                    50:'#FAF5FF',
+                    100:'#F3E8FF',
+                    200:'#E9D5FF',
+                    300:'#D8B4FE',
+                    400:'#C084FC',
+                    500:'#A855F7',
+                    600:'#9333EA',
+                    700:'#7E22CE',
+                    800:'#6B21A8',
+                    900:'#581C87',
+                },
+                'fuchsia':{
+                    50:'#FDF4FF',
+                    100:'#FAE8FF',
+                    200:'#F5D0FE',
+                    300:'#F0ABFC',
+                    400:'#E879F9',
+                    500:'#D946EF',
+                    600:'#C026D3',
+                    700:'#A21CAF',
+                    800:'#86198F',
+                    900:'#701A75',
+                },
+                'pink':{
+                    50:'#FDF2F8',
+                    100:'#FCE7F3',
+                    200:'#FBCFE8',
+                    300:'#F9A8D4',
+                    400:'#F472B6',
+                    500:'#EC4899',
+                    600:'#DB2777',
+                    700:'#BE185D',
+                    800:'#9D174D',
+                    900:'#831843',
+                },
+                'rose':{
+                    50:'#FFF1F2',
+                    100:'#FFE4E6',
+                    200:'#FECDD3',
+                    300:'#FDA4AF',
+                    400:'#FB7185',
+                    500:'#F43F5E',
+                    600:'#E11D48',
+                    700:'#BE123C',
+                    800:'#9F1239',
+                    900:'#881337',
+                },
+            },
+            borderColor: {
+                DEFAULT: '#F3F4F6'
+            },
+            transitionDuration: {
+                DEFAULT: '500ms'
+            }
+        },
+    },
+
+    variants: {
+        extend: {
+            opacity: ["disabled"],
+        },
+    },
+
+    plugins: [
+        aspectRatio,
+        containerQueries,
+        forms,
+        typography,
+    ],
+    darkMode: "class",
+};
