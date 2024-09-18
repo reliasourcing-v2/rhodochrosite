@@ -9,7 +9,7 @@
 /public/css
 /public/images
 /public/temp/
-/public/storage
+/public/storage/logs/*
 /storage/*.key
 /storage/*.index*
 /storage/framework/laravel-excel
@@ -34,3 +34,5 @@ package-lock.json
 **/.DS_Store
 /ckeditor5-38.1/
 /public/sitemap.xml
+
+/docker
