@@ -57,7 +57,13 @@
                                             <edit-button
                                                 :routeLink="route('admin.application.view', item.id)"
                                             />
-                                            <delete-button @click="selectArchive(item)" />
+                                            <delete-button
+                                                v-if="selectedTab !== 'archived'"
+                                                :modal-title="`Archive Application #${item.id}`"
+                                                :modal-name="`${item.id}`"
+                                                :route-link="route('admin.application.delete', item.id)"
+                                            />
+
                                         </template>
 
                                         <restore-button
