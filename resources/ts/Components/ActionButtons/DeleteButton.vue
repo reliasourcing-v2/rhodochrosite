@@ -1,6 +1,7 @@
 <template>
     <action-button
         fill="outline"
+        @click="show = true"
         :customClass="icon ? 'mx-1 !px-2' : ''"
     >
         <TrashIcon 
@@ -8,7 +9,16 @@
         class="p-0.5 h-6 w-6 text-gray-500" aria-hidden="true" />
         <p v-else>Delete</p>
     </action-button>
-   
+
+    <template v-if="showDeleteModal">
+        <delete-modal
+            :show="show"
+            :title="modalTitle"
+            :item-name="modalName"
+            @confirm="confirmArchive"
+            @cancel="show = false"
+        />
+    </template>
 </template>
 
 <script setup lang="ts">
@@ -44,4 +54,11 @@ const props = defineProps({
 });
 
 const show = ref<boolean>(false)
+
+const confirmArchive = () => {
+    show.value = false
+    router.delete(props.routeLink, {
+        preserveState: false,
+    });
+}
 </script>

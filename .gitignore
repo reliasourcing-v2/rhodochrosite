@@ -9,7 +9,7 @@
 /public/css
 /public/images
 /public/temp/
-/public/storage/logs/*
+/public/storage
 /storage/*.key
 /storage/*.index*
 /storage/framework/laravel-excel
