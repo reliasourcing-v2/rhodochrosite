@@ -33,6 +33,9 @@ Route::get('/sub-page/{slug}', [ApiController::class, 'getSubPage']);
 Route::get('/child-page/{slug}', [ApiController::class, 'getChildPage']);
 Route::get('/pricing-items', [ApiController::class, 'getPricingItems']);
 
+Route::get('/featured-article', [ApiController::class, 'getFeaturedArticle']);
+Route::get('/blogs', [ApiController::class, 'getBlogs']);
+Route::get('/case-studies', [ApiController::class, 'getCaseStudies']);
 Route::get('/articles', [ApiController::class, 'getArticles']);
 Route::get('/articles/{slug}', [ApiController::class, 'getArticle']);
 

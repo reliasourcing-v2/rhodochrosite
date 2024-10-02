@@ -95,19 +95,42 @@ class ApiController extends Controller
         return response()->json($items);
     }
 
-    public function getArticles(Request $request)
+    public function getFeaturedArticle(Request $request)
     {
         $featured = Article::query()->where('is_highlight', 1)->orderBy('publish_date', 'desc')->get();
-        $blogs = Article::query()->where('article_type', 'blogs')->where('is_highlight', 0)->orderBy('publish_date', 'desc')->get();
-        $caseStudies = Article::query()->where('article_type', 'case-studies')->where('is_highlight', 0)->orderBy('publish_date', 'desc')->get();
-
         return response()->json([
             'featured' => $featured,
-            'blogs' => $blogs,
-            'caseStudies' => $caseStudies,
         ]);
     }
 
+    public function getBlogs(Request $request)
+    {
+        // Use the 'paginate' method for pagination
+        $blogs = Article::query()
+            ->where('article_type', 'blogs')
+            ->where('is_highlight', 0)
+            ->orderBy('publish_date', 'desc')
+            ->paginate(4); // 4 items per page
+
+        return response()->json([
+            'blogs' => $blogs,
+        ]);
+    }
+
+    public function getCaseStudies(Request $request)
+    {
+        // Use the 'paginate' method for pagination
+        $caseStudies = Article::query()
+            ->where('article_type', 'case-studies')
+            ->where('is_highlight', 0)
+            ->orderBy('publish_date', 'desc')
+            ->paginate(4); // 4 items per page
+
+        return response()->json([
+            'caseStudies' => $caseStudies,
+        ]);
+    }
+    
     public function getArticle($slug)
     {
         $article = Article::where('slug', $slug)->firstOrFail();
