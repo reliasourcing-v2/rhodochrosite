@@ -7,6 +7,7 @@ use App\Http\Controllers\User\Inquiry\InquiryController;
 use App\Http\Controllers\User\Subscription\SubscriptionController;
 use App\Http\Controllers\User\Application\ApplicationController;
 use App\Http\Controllers\User\Computation\ComputationController;
+use App\Http\Controllers\Api\SiteMapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/sitemap', [SiteMapController::class, 'getSitemap']);
 Route::get('/cms-header', [ApiController::class, 'getCmsHeader']);
 Route::get('/cms-footer', [ApiController::class, 'getCmsFooter']);
 Route::get('/parent-pages', [ApiController::class, 'getParentPages']);

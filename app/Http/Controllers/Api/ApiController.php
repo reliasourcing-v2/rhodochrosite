@@ -95,7 +95,15 @@ class ApiController extends Controller
         return response()->json($items);
     }
 
-    public function getFeaturedArticle(Request $request)
+    public function getArticles()
+    {
+        $articles = Article::orderBy('publish_date', 'desc')->get();
+        return response()->json([
+            'articles' => $articles,
+        ]);
+    }
+
+    public function getFeaturedArticle()
     {
         $featured = Article::query()->where('is_highlight', 1)->orderBy('publish_date', 'desc')->get();
         return response()->json([
@@ -103,7 +111,7 @@ class ApiController extends Controller
         ]);
     }
 
-    public function getBlogs(Request $request)
+    public function getBlogs()
     {
         // Use the 'paginate' method for pagination
         $blogs = Article::query()
@@ -117,7 +125,7 @@ class ApiController extends Controller
         ]);
     }
 
-    public function getCaseStudies(Request $request)
+    public function getCaseStudies()
     {
         // Use the 'paginate' method for pagination
         $caseStudies = Article::query()
