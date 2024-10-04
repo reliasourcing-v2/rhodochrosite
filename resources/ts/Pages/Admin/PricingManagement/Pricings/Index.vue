@@ -220,7 +220,7 @@ const selectRestore = (item: object): void => {
 
 const processRestore =(): void => {
     router.post(
-        route("admin.article-management.articles.restore"),
+        route("admin.pricing-management.pricings.restore"),
         { id: selectedItem.value.id },
         { preserveState: false }
     )

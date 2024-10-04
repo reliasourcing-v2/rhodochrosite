@@ -60,10 +60,13 @@
                                         v-if="selectedTab !== 'archived'"
                                         :routeLink="route('admin.accounts.admins.view', item.id)"
                                         />
-    
-                                        <delete-button 
-                                        v-if="selectedTab !== 'archived'"
-                                        @click="selectArchive(item)" />
+
+                                        <delete-button
+                                            v-if="selectedTab !== 'archived'"
+                                            :modal-title="`Archive Admin ${item.name}`"
+                                            :modal-name="`${item.name}`"
+                                            :route-link="route('admin.accounts.admins.delete', item.id)"
+                                        />
     
                                         <restore-button
                                         v-if="selectedTab === 'archived'"

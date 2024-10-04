@@ -54,7 +54,12 @@
                                             <edit-button
                                                 :routeLink="route('admin.computation.view', item.id)"
                                             />
-                                            <delete-button @click="selectArchive(item)" />
+                                            <delete-button
+                                                v-if="selectedTab !== 'archived'"
+                                                :modal-title="`Archive Computation #${item.id}`"
+                                                :modal-name="`${item.id}`"
+                                                :route-link="route('admin.computation.delete', item.id)"
+                                            />
                                         </template>
 
                                         <restore-button
@@ -238,7 +243,7 @@ const selectRestore = (item: object): void => {
 
 const processArchive = (): void => {
     router.delete(
-        route('admin.application.delete', selectedItem.value.id),
+        route('admin.computation.delete', selectedItem.value.id),
         {
             preserveState: false
         }
@@ -247,7 +252,7 @@ const processArchive = (): void => {
 
 const processRestore =(): void => {
     router.post(
-        route("admin.application.restore"),
+        route("admin.computation.restore"),
         { id: selectedItem.value.id },
         { preserveState: false }
     )
@@ -266,7 +271,7 @@ watch(
     searchText,
     throttle((val: string) => {
         router.get(
-            route("admin.application.index"),
+            route("admin.computation.index"),
             pickBy({
                 query: val,
                 tab: props.selectedTab

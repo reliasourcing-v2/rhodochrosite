@@ -57,7 +57,12 @@
                                             <edit-button
                                                 :routeLink="route('admin.contact.subscriptions.view', item.id)"
                                             />
-                                            <delete-button @click="selectArchive(item)" />
+                                            <delete-button
+                                                v-if="selectedTab !== 'archived'"
+                                                :modal-title="`Archive Subscription #${item.id}`"
+                                                :modal-name="`${item.id}`"
+                                                :route-link="route('admin.contact.subscriptions.delete', item.id)"
+                                            />
                                         </template>
 
                                         <restore-button
